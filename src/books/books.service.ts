@@ -22,7 +22,6 @@ export class BooksService {
   }
   addBook(book): Promise<any> {
     return new Promise((resolve) => {
-      console.log(book)
       this.books.push(book);
       resolve(this.books);
     });
@@ -32,7 +31,7 @@ export class BooksService {
     return new Promise((resolve) => {
       const index = this.books.findIndex((book) => book.id === id);
       if (index === -1) {
-        throw new HttpException('Book does not exist!', 404)
+        throw new HttpException('Book does not exist!', 404);
       }
       this.books.splice(1, index);
       resolve(this.books);

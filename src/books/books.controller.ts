@@ -1,4 +1,12 @@
-import { Controller, Get, Param, Post, Body, Query, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  Post,
+  Body,
+  Query,
+  Delete,
+} from '@nestjs/common';
 import { CreateBookDTO } from './dto/create-book.dto';
 import { BooksService } from './books.service';
 
