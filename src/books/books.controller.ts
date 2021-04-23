@@ -21,7 +21,7 @@ export class BooksController {
   }
 
   @Get(':bookID')
-  async getBook(@Param('bookID') bookID) {
+  async getBook(@Param('bookID') bookID: Number) {
     const book = await this.bookService.getBook(bookID);
     return book;
   }
