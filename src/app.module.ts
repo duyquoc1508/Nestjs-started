@@ -12,11 +12,14 @@ import { ItemsModule } from './items/items.module';
   controllers: [AppController],
   providers: [AppService],
   imports: [
-    
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
     }),
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    MongooseModule.forRoot(
+      'mongodb://127.0.0.1:27017/nest',
+      {
+        useCreateIndex: true
+      }),
     // MongooseModule.forRootAsync({
     //   useFactory: () => ({
     //     uri: 'mongodb://127.0.0.1:27017/nest',

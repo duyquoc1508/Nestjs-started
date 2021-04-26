@@ -11,12 +11,11 @@ export class ItemsService {
   constructor(@InjectModel('Item') private itemModel: Model<IItem>) {}
 
   async create(createItemDto: ItemInput): Promise<ItemType> {
-    const createdItem = new this.itemModel(createItemDto);
-    return await createdItem.save();
+    return await this.itemModel.create(createItemDto);
   }
 
   async findAll(): Promise<ItemType[]> {
-    return await this.itemModel.find().exec();
+    return await this.itemModel.find({});
   }
 
   async findOne(id: string): Promise<ItemType> {

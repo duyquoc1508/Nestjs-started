@@ -1,4 +1,4 @@
-import { ObjectType, Field, Int, ID } from 'type-graphql';
+import { Field, ID, ObjectType, Int } from '@nestjs/graphql';
 
 @ObjectType()
 export class ItemType{
