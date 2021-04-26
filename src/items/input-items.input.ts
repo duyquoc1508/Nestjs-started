@@ -8,4 +8,6 @@ export class ItemInput {
   readonly price: number;
   @Field()
   readonly description: string;
+  @Field()
+  readonly customerId: string;
 }

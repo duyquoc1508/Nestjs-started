@@ -21,7 +21,7 @@ export class Customer extends Document {
   @Prop()
   description: string;
 
-  @Prop({ type: [Types.ObjectId], ref: 'Organization' })
+  @Prop({ type: Types.ObjectId, ref: 'Organization' })
   organizations: string;
 }
 

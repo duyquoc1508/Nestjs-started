@@ -1,5 +1,5 @@
 import { MaxLength, IsNotEmpty, IsEmail, IsString } from 'class-validator';
-
+import { Field, ObjectType } from '@nestjs/graphql';
 export class CreateCustomerDto {
   @IsString()
   @MaxLength(30)
@@ -32,4 +32,22 @@ export class CreateCustomerDto {
 
   @IsString()
   readonly organizations: string
+}
+
+@ObjectType()
+export class CustomerTypeDto{
+  @Field()
+  readonly firstName: string;
+  @Field()
+  readonly lastName: string;
+  @Field()
+  readonly email: string;
+  @Field()
+  readonly phone: string;
+  @Field()
+  readonly address: string;
+  @Field()
+  readonly description: string;
+  @Field()
+  readonly organizations: string;
 }

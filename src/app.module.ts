@@ -13,7 +13,8 @@ import { ItemsModule } from './items/items.module';
   providers: [AppService],
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: 'schema.gql', // 'code first' approach => code typeScript => auto gen typeDefs
+      sortSchema: true // Sort the schema lexicographically,
     }),
     MongooseModule.forRoot(
       'mongodb://127.0.0.1:27017/nest',

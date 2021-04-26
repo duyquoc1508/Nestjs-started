@@ -7,5 +7,6 @@ export interface ICustomer extends Document {
   readonly email: string;
   readonly phone: string;
   readonly address: string;
+  readonly organizations: string;
   readonly description: string;
 }

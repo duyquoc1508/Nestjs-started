@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType, Int } from '@nestjs/graphql';
 
 @ObjectType()
-export class ItemType{
+export class ItemTypeDto {
   @Field(() => ID)
   readonly id?: string;
   @Field()
@@ -10,4 +10,6 @@ export class ItemType{
   readonly price: number;
   @Field()
   readonly description: string;
+  @Field()
+  readonly customerId?: string;
 }

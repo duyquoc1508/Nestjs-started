@@ -9,13 +9,13 @@ import { PaginationQueryDto } from '../common/dto/pagination-query.dto';
 @Injectable()
 export class CustomersService {
   constructor(
-    @InjectModel(Customer.name) private readonly customerModel: Model<Customer>,
+    @InjectModel(Customer.name) private readonly customerModel: Model<ICustomer>,
   ) {}
 
   public async findAll(
-    paginationQuery: PaginationQueryDto,
+    paginationQuery?: PaginationQueryDto,
   ): Promise<Customer[]> {
-    const { limit, offset } = paginationQuery;
+    const { limit = 10, offset = 0} = paginationQuery || {}
 
     return await this.customerModel
       .find()
@@ -38,7 +38,7 @@ export class CustomersService {
 
   public async create(
     createCustomerDto: CreateCustomerDto,
-  ): Promise<ICustomer> {
+  ): Promise<Customer> {
     const newCustomer = await new this.customerModel(createCustomerDto);
     return newCustomer.save();
   }
@@ -46,7 +46,7 @@ export class CustomersService {
   public async update(
     customerId: string,
     updateCustomerDto: UpdateCustomerDto,
-  ): Promise<ICustomer> {
+  ): Promise<Customer> {
     const existingCustomer = await this.customerModel.findByIdAndUpdate(
       { _id: customerId },
       updateCustomerDto,

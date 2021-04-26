@@ -2,27 +2,52 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type ItemType {
-  id: ID!
-  title: String!
-  price: Int!
+input CustomerInput {
+  address: String!
   description: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  organizations: String!
+  phone: String!
 }
 
-type Query {
-  items: [ItemType!]!
-  item(id: String!): ItemType!
-  hello: String!
-}
-
-type Mutation {
-  createItem(input: ItemInput!): ItemType!
-  updateItem(input: ItemInput!, id: String!): ItemType!
-  deleteItem(id: String!): ItemType!
+type CustomerTypeDto {
+  address: String!
+  description: String!
+  email: String!
+  firstName: String!
+  lastName: String!
+  organizations: String!
+  phone: String!
 }
 
 input ItemInput {
-  title: String!
-  price: Int!
+  customerId: String!
   description: String!
+  price: Int!
+  title: String!
+}
+
+type ItemTypeDto {
+  customerId: String!
+  description: String!
+  id: ID!
+  price: Int!
+  title: String!
+}
+
+type Mutation {
+  createCustomer(input: CustomerInput!): CustomerTypeDto!
+  createItem(input: ItemInput!): ItemTypeDto!
+  deleteItem(id: String!): ItemTypeDto!
+  updateItem(id: String!, input: ItemInput!): ItemTypeDto!
+}
+
+type Query {
+  customer(id: String!): CustomerTypeDto!
+  customers: [CustomerTypeDto!]!
+  hello: String!
+  item(id: String!): ItemTypeDto!
+  items: [ItemTypeDto!]!
 }
